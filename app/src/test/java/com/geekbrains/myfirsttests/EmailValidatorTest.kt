@@ -29,7 +29,7 @@ class EmailValidatorTest {
     @Test
     fun emailValidator_InvalidEmailNoUsername_ReturnsFalse() {
         val correctUserName = EmailValidator.isValidEmail("gmail.com")
-        assertFalse("Error is here",correctUserName)
+        assertFalse("Error is here", correctUserName)
         assertFalse(EmailValidator.isValidEmail("@email.com"))
     }
 
@@ -41,5 +41,19 @@ class EmailValidatorTest {
     @Test
     fun emailValidator_NullEmail_ReturnsFalse() {
         assertFalse(EmailValidator.isValidEmail(null))
+    }
+
+    @Test
+    fun emailValidator_NoDomain_ReturnFalse() {
+        val exampleNoDomain = EmailValidator.isValidEmail("someName@.com")
+        assertFalse("No domain in the email", exampleNoDomain)
+        assertFalse(EmailValidator.isValidEmail("someName@.com"))
+    }
+
+    @Test
+    fun emailValidator_NoAtSymbol_ReturnFalse() {
+        val exampleAtSymbol = EmailValidator.isValidEmail("someName.com")
+        assertFalse("No @ in the email", exampleAtSymbol)
+        assertFalse(EmailValidator.isValidEmail("someName.com"))
     }
 }

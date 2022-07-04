@@ -1,10 +1,8 @@
 package com.geekbrains.myfirsttests
 
-import org.junit.Assert
-import org.junit.Test
-
 import org.junit.Assert.*
 import org.junit.Before
+import org.junit.Test
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -56,7 +54,7 @@ class Test{
     }
     @Test
     fun testSameObject(){
-        val someTestObject = mySingleObject
+        val someTestObject = mySingleObject.returnMyObject()
         assertSame("should be single object only",someTestObject,someTestObject)
     }
 }
